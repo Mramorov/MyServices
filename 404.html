@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; URL=/" />
     <script>
-        // Ensure the redirect works even if JavaScript is disabled
-        window.location.replace("/");
+        (function() {
+            var currentPath = window.location.pathname + window.location.search + window.location.hash;
+            var newPath = "/MyServices/" + currentPath;
+            window.location.replace(newPath);
+        })();
     </script>
 </head>
 <body>
