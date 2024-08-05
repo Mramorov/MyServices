@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <script>
         (function() {
-            var currentPath = window.location.pathname + window.location.search + window.location.hash;
-            var newPath = "/MyServices/" + currentPath;
+            // Проверяем, находимся ли мы уже в правильной директории
+            var currentPath = window.location.pathname;
+            if (currentPath.startsWith("/MyServices/")) {
+                // Если да, ничего не делаем
+                return;
+            }
+            // Иначе, перенаправляем на правильный путь
+            var newPath = "/MyServices" + currentPath + window.location.search + window.location.hash;
             window.location.replace(newPath);
         })();
     </script>
